@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+'use strict';
+
+const nspNotification = require('../');
+const tokenAndRoom = process.env.NSP_HIPCHAT_NOTIFICATION;
+const projectName = process.env.TRAVIS_REPO_SLUG || 'unknown project';
+
+if (!tokenAndRoom) {
+	console.log('No NSP_HIPCHAT_NOTIFICATION environment variable found, skipping nsp check');
+	process.exit(0);
+}
+
+const [token, room] = tokenAndRoom.split('@');
+
+nspNotification(token, room, projectName);

@@ -1,0 +1,48 @@
+{
+  "name": "@aptoma/nsp-hipchat-notification",
+  "version": "0.1.0",
+  "description": "",
+  "bin": {
+    "nsp-hipchat-notification": "bin/nsp-hipchat-notification"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "npm run lint",
+    "changelog": "git log `git describe --tags --abbrev=0`..HEAD --pretty=format:\"  * %s\"",
+    "release": "npm run ci && release-it -n -i patch",
+    "release:minor": "npm run ci && release-it -n -i minor",
+    "release:major": "npm run ci && release-it -n -i major"
+  },
+  "engines": {
+    "node": ">=6.x.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aptoma/nsp-hipchat-notification"
+  },
+  "keywords": [],
+  "author": "Martin Jonsson <martin@aptoma.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aptoma/nsp-hipchat-notification/issues"
+  },
+  "homepage": "https://github.com/aptoma/nsp-hipchat-notification",
+  "eslintConfig": {
+    "extends": "@aptoma/eslint-config",
+    "env": {
+      "node": true,
+      "mocha": true,
+      "es6": true
+    }
+  },
+  "dependencies": {
+    "nsp": "^2.6.3",
+    "request-prom": "^3.1.0"
+  },
+  "devDependencies": {
+    "@aptoma/eslint-config": "^6.0.0",
+    "eslint": "^3.19.0",
+    "release-it": "^2.3.1"
+  }
+}
